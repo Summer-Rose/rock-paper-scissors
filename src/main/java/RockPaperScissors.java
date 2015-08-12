@@ -10,6 +10,7 @@ public class RockPaperScissors {
 
   public static void main(String[] args) {
     String layout = "templates/layout.vtl";
+    staticFileLocation("/public");
 
 
     get("/", (request, response) -> {
@@ -36,12 +37,31 @@ public class RockPaperScissors {
     get("/results", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/results.vtl");
-      String result = request.queryParams("playerChoice");
-      String winner = isWinnerComputer(result);
 
-      model.put("result", result);
-      model.put("computerChoice", computerChoice);
-      model.put("winner", winner);
+      if (computerChoice == null) {
+        String playerOneChoice = request.queryParams("playerOneChoice");
+        String playerTwoChoice = request.queryParams("playerTwoChoice");
+        String winner = isWinner(playerOneChoice, playerTwoChoice);
+
+        model.put("playerOneChoice", playerOneChoice);
+        model.put("playerTwoChoice", playerTwoChoice);
+        model.put("winner", winner);
+      } else {
+        String result = request.queryParams("playerChoice");
+        String winner = isWinnerComputer(result);
+
+        model.put("result", result);
+        model.put("computerChoice", computerChoice);
+        model.put("winner", winner);
+      }
+
+      // String result = request.queryParams("playerChoice");
+      // String winner = isWinnerComputer(result);
+
+
+      // model.put("result", result);
+      // model.put("computerChoice", computerChoice);
+
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

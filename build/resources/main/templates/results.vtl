@@ -1,4 +1,11 @@
 <h2>Rock Paper Scissors Results</h2>
 <p>$winner</p>
+
+#if (!$computerChoice)
+<p>Player One chose: $playerOneChoice</p>
+<p>Player Two chose: $playerTwoChoice</p>
+
+#else
 <p>You chose $result.</p>
 <p>The computer chose $computerChoice.</p>
+#end

@@ -1,9 +1,11 @@
 <h1>Human vs. Human</h1>
 
 <h3>Let's Play! Choose your move below.</h3>
-<form action="/results">
-  <p>Player One</p>
-  <div class="player-one">
+<form class="form-inline" action="/results" id="choiceForm" name="choiceForm" >
+
+
+  <div class="player-one" id="player-one" class="form-group">
+  <label for="playerOneChoice">Player1</label>
     <select name="playerOneChoice" id="playerOneChoice">
       <option value="Rock">Rock</option>
       <option value="Paper">Paper</option>
@@ -11,14 +13,14 @@
     </select>
   </div>
 
-  <p>Player Two</p>
-  <div class="player-two">
-    <select name="playerTwoChoice" id="playerTwoChoice">
+  <div class="player-two" class="form-group">
+  <label for="playerTwoChoice">Player2</label>
+    <select name="playerTwoChoice" id="playerTwoChoice" >
       <option value="Rock">Rock</option>
       <option value="Paper">Paper</option>
       <option value="Scissors">Scissors</option>
     </select>
   </div>
 
-  <button type="submit" class="btn">Submit Play</button>
+  <button type="submit" class="btn btn-default" id="twoplayerbutton">Submit Play</button>
 </form>

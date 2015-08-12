@@ -40,4 +40,12 @@ public class RockPaperScissorsUnitTest {
   //   assertEquals("Player One Wins", testResult.isWinnerComputer("Paper"));
   // }
 
+  @Test
+  public void computerChooses_shouldBeAString_true() {
+  RockPaperScissors testResult = new RockPaperScissors();
+  String computerChoice =  testResult.isWinnerComputer("Rock");
+  assertEquals(true, computerChoice instanceof String);
+}
+
+
 }

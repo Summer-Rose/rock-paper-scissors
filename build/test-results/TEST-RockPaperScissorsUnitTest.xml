@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RockPaperScissorsUnitTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2015-08-12T20:51:30" hostname="epicodus-103.local" time="0.002">
+<testsuite name="RockPaperScissorsUnitTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-08-12T23:29:57" hostname="epicodus-103.local" time="0.001">
   <properties/>
-  <testcase name="checkWinner_playersTie_true" classname="RockPaperScissorsUnitTest" time="0.001"/>
+  <testcase name="checkWinner_playersTie_true" classname="RockPaperScissorsUnitTest" time="0.0"/>
   <testcase name="checkWinner_playerTwoWins_true" classname="RockPaperScissorsUnitTest" time="0.0"/>
   <testcase name="checkWinner_scissorsBeatsPaper_true" classname="RockPaperScissorsUnitTest" time="0.0"/>
   <testcase name="checkWinner_rockBeatsScissors_true" classname="RockPaperScissorsUnitTest" time="0.0"/>
+  <testcase name="computerChooses_shouldBeAString_true" classname="RockPaperScissorsUnitTest" time="0.0"/>
   <testcase name="checkWinner_paperBeatsRock_true" classname="RockPaperScissorsUnitTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
+  <system-out><![CDATA[Paper
+Rock
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
