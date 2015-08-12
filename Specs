@@ -1,0 +1,24 @@
+1.Input:
+Selected plays :Rock & Rock
+Output:Tie
+
+2.Input:
+Selected plays: Rock & Paper
+Output: Paper wins
+
+3. Input:
+Selected plays: Rock & Scissors
+Output: Rock wins
+
+4.Input:
+Selected plays: Paper & Paper
+Output: Tie
+
+
+5.Input:
+Selected plays: Paper & Scissors
+Output: Scissors wins
+
+5.Input:
+Selected plays: Scissors & Scissors
+Output: Tie
