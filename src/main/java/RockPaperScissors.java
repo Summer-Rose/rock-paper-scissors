@@ -6,7 +6,44 @@ import static spark.Spark.*;
 import java.util.Random;
 
 public class RockPaperScissors {
+  public static String computerChoice;
+
   public static void main(String[] args) {
+    String layout = "templates/layout.vtl";
+
+
+    get("/", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/home.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/letsplay", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+
+      String choice = request.queryParams("playerChoice");
+
+      if ( choice.equals("twoplayers") ) {
+        model.put("template", "templates/twoplayer.vtl");
+      } else {
+        model.put("template", "templates/computer.vtl");
+        model.put("playerChoice", choice);
+      }
+
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/results", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/results.vtl");
+      String result = request.queryParams("playerChoice");
+      String winner = isWinnerComputer(result);
+
+      model.put("result", result);
+      model.put("computerChoice", computerChoice);
+      model.put("winner", winner);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
   }
 
@@ -34,14 +71,16 @@ public class RockPaperScissors {
     computerChoices.put(2, "Scissors");
 
     String choice = computerChoices.get(computer);
+    computerChoice = choice;
+    System.out.println(choice);
+    System.out.println(playerOne);
 
-
-    if ((playerOne == "Rock" && choice == "Scissors" ) || (playerOne == "Paper" && choice == "Rock") || (playerOne == "Scissors" && choice == "Paper")) {
-      return "Player One Wins";
-    } else if (playerOne == choice) {
-      return "Tie";
+    if ((playerOne.equals("Rock") && choice.equals("Scissors")) || (playerOne.equals("Paper") && choice.equals("Rock")) || (playerOne.equals("Scissors") && choice.equals("Paper"))) {
+      return "You are the winner!";
+    } else if (playerOne.equals(choice)) {
+      return "It's a tie.";
     } else {
-      return "Computer Wins";
+      return "The computer wins. You lose!";
     }
   }
 }
